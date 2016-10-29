@@ -24,32 +24,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/melee_text"
-        android:text="You Should Never See This"
+        android:text="If you see this text please contact me"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimaryText"
         android:textSize="20sp"/>
 
-    <Button android:id="@+id/tournament_button"
+    <Button android:id="@+id/tournaments_button"
         android:layout_width="220dp"
         android:layout_height="75dp"
         android:layout_marginTop="25dp"
-        android:text="tournament"
+        android:text="@string/tournaments_button"
         android:layout_below="@+id/game_count"
         android:layout_centerHorizontal="true"
-        android:onClick="tournamentButtonClick" />
+        android:onClick="tournamentsButtonClick" />
 
     <Button android:id="@+id/player_button"
         android:layout_width="220dp"
         android:layout_height="75dp"
-        android:text="player index"
-        android:layout_below="@+id/tournament_button"
+        android:text="@string/player_button"
+        android:layout_below="@+id/tournaments_button"
         android:layout_centerHorizontal="true"
         android:onClick="playerButtonClick" />
 
     <Button android:id="@+id/stats_button"
         android:layout_width="220dp"
         android:layout_height="75dp"
-        android:text="statistics"
+        android:text="@string/statistics"
         android:layout_below="@+id/player_button"
         android:layout_centerHorizontal="true"
         android:onClick="statsButtonClick" />

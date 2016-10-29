@@ -13,4 +13,11 @@
         <item name="android:windowBackground">@drawable/background_splash</item>
     </style>
 
+    <style name="AppTheme.ActionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    </style>
+
+    <style name="AppTheme.ActionBarPopupTheme" parent="ThemeOverlay.AppCompat.Light">
+    </style>
+
+
 </resources>

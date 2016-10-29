@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         gameCountText.setText(countString);
     }
 
-    public void tournamentButtonClick(View view) {
+    public void tournamentsButtonClick(View view) {
         Intent intent = new Intent(this, TournamentActivity.class);
         startActivity(intent);
     }

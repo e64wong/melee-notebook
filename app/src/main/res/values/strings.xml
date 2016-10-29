@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Melee Notebook</string>
+    <string name="tournaments_button">tournaments</string>
+    <string name="player_button">player index</string>
+    <string name="statistics">statistics</string>
+    <string name="tournaments_action_bar">Tournaments</string>
+    <string name="add_tournament">Add Tournament</string>
 </resources>
