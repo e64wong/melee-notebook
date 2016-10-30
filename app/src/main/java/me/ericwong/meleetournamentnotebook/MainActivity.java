@@ -1,17 +1,10 @@
 package me.ericwong.meleetournamentnotebook;
 
-import android.app.ActivityOptions;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateGameCount(){
-        long gameCount = GamesTable.count(GamesTable.class);
+        long gameCount = MeleeGamesTable.count(MeleeGamesTable.class);
         TextView gameCountText = (TextView) findViewById(R.id.game_count);
         String countString = String.valueOf(gameCount) + " Games Played and Counting";
         gameCountText.setText(countString);
