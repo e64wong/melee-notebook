@@ -5,4 +5,5 @@
     <string name="statistics">statistics</string>
     <string name="tournaments_action_bar">Tournaments</string>
     <string name="add_tournament">Add Tournament</string>
+    <string name="contact_me_text">If you see this text please contact me</string>
 </resources>

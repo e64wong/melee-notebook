@@ -20,11 +20,20 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimaryText"/>
 
-    <TextView android:id="@+id/game_count"
+    <TextView android:id="@+id/tournament_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/melee_text"
-        android:text="If you see this text please contact me"
+        android:text="@string/contact_me_text"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="20sp"/>
+
+    <TextView android:id="@+id/game_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tournament_count"
+        android:text="@string/contact_me_text"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimaryText"
         android:textSize="20sp"/>

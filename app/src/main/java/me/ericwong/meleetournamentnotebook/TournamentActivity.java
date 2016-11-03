@@ -8,9 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-public class TournamentActivity extends AppCompatActivity {
+import me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.fragments.AddTournamentDialogFragment;
+import me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.interfaces.TournamentInterface;
+import me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.tables.TournamentsTable;
 
+public class TournamentActivity extends AppCompatActivity implements TournamentInterface {
+    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +23,7 @@ public class TournamentActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.tournaments_action_bar);
         setSupportActionBar(toolbar);
-
+        textView = (TextView) findViewById(R.id.tournament_count);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle(R.string.tournaments_action_bar);
@@ -46,7 +51,14 @@ public class TournamentActivity extends AppCompatActivity {
     public void addTournament(){
         FragmentManager fm = getFragmentManager();
         AddTournamentDialogFragment dialogFragment = new AddTournamentDialogFragment();
-        dialogFragment.show(fm, "Sample Fragment");
+        dialogFragment.show(fm, "newTournamentDialogFragment");
+    }
+
+    public void instertTournamentToDatabase(String text){
+        if (text.length() > 0) {
+            TournamentsTable tournament = new TournamentsTable(text, 0, 0, -1);
+            tournament.save();
+        }
     }
 
 }
