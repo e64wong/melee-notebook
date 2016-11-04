@@ -15,18 +15,18 @@ public class TournamentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tournament);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tournaments_action_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tournament_action_bar);
         setSupportActionBar(toolbar);
         textView = (TextView) findViewById(R.id.tournament_count);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        ab.setTitle(R.string.tournaments_action_bar);
+        ab.setTitle(TournamentsTable.last(TournamentsTable.class).name);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.tournaments_action_bar_menu, menu);
+        inflater.inflate(R.menu.tournament_action_bar_menu, menu);
         return true;
     }
 

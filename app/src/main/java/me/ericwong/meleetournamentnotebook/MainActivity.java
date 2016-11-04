@@ -37,19 +37,31 @@ public class MainActivity extends AppCompatActivity implements TournamentInterfa
     public void updateGameCount(){
         long gameCount = MeleeGamesTable.count(MeleeGamesTable.class);
         TextView gameCountText = (TextView) findViewById(R.id.game_count);
-        String countString = String.valueOf(gameCount) + " Games Played";
+        String countString;
+        if (gameCount == 1){
+            countString = "1 Game Played";
+        }
+        else {
+            countString = String.valueOf(gameCount) + " Games Played";
+        }
         gameCountText.setText(countString);
     }
 
     public void updateTournamentCount(){
         long gameCount = TournamentsTable.count(TournamentsTable.class);
         TextView tournamentCount = (TextView) findViewById(R.id.tournament_count);
-        String countString = String.valueOf(gameCount) + " Tournaments Attended";
+        String countString;
+        if (gameCount == 1){
+            countString = "1 Tournament Saved";
+        }
+        else {
+            countString = String.valueOf(gameCount) + " Tournaments Saved";
+        }
         tournamentCount.setText(countString);
     }
 
     public void updateTournamentButton(){
-        TextView tournamentButton = (TextView) findViewById(R.id.tournaments_button);
+        TextView tournamentButton = (TextView) findViewById(R.id.tournament_button);
         if (isInTournament()){
             tournamentButton.setText(R.string.resume_tournament);
         }
@@ -58,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements TournamentInterfa
         }
     }
 
-    public void tournamentsButtonClick(View view) {
+    public void tournamentButtonClick(View view) {
         if (!isInTournament()){
             addTournament();
         }

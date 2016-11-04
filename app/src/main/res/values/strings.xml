@@ -4,7 +4,7 @@
     <string name="resume_tournament">resume tournament</string>
     <string name="player_button">player index</string>
     <string name="statistics">statistics</string>
-    <string name="tournaments_action_bar">Tournament</string>
+    <string name="tournament_action_bar">Tournament</string>
     <string name="add_tournament">Add Tournament</string>
     <string name="contact_me_text">If you see this text please contact me</string>
 </resources>

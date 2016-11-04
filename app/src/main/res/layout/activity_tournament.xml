@@ -5,11 +5,10 @@
     android:id="@+id/activity_tournament"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     tools:context="me.ericwong.meleetournamentnotebook.TournamentActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/tournaments_action_bar"
+        android:id="@+id/tournament_action_bar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -21,7 +20,7 @@
         android:layout_margin="0dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tournaments_action_bar">
+        android:layout_below="@+id/tournament_action_bar">
     </FrameLayout>
 
 </RelativeLayout>
