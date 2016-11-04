@@ -13,13 +13,13 @@ public class TournamentsTable extends SugarRecord {
     int win_count;
     int loss_count;
     int placing;
-    int start;
-    int end;
+    long start;
+    long end;
 
     public TournamentsTable(){
     }
 
-    public TournamentsTable(String name, String game, int win_count, int loss_count, int placing, int start, int end){
+    public TournamentsTable(String name, String game, int win_count, int loss_count, int placing, long start, long end){
         this.name = name;
         this.game = game;
         this.win_count = win_count;
