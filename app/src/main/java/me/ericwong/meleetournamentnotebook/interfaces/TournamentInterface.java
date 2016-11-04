@@ -1,4 +1,4 @@
-package me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.interfaces;
+package me.ericwong.meleetournamentnotebook.interfaces;
 
 /**
  * Created by root on 02/11/16.

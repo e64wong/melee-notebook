@@ -1,4 +1,4 @@
-package me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.tables;
+package me.ericwong.meleetournamentnotebook;
 
 import com.orm.SugarRecord;
 
@@ -9,17 +9,23 @@ import com.orm.SugarRecord;
 public class TournamentsTable extends SugarRecord {
 
     String name;
+    String game;
     int win_count;
     int loss_count;
     int placing;
+    int start;
+    int end;
 
     public TournamentsTable(){
     }
 
-    public TournamentsTable(String name, int win_count, int loss_count, int placing){
+    public TournamentsTable(String name, String game, int win_count, int loss_count, int placing, int start, int end){
         this.name = name;
+        this.game = game;
         this.win_count = win_count;
         this.loss_count = loss_count;
         this.placing = placing;
+        this.start = start;
+        this.end = end;
     }
 }

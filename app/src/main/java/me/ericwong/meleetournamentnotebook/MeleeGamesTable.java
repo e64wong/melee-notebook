@@ -1,4 +1,4 @@
-package me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.tables;
+package me.ericwong.meleetournamentnotebook;
 
 import com.orm.SugarRecord;
 

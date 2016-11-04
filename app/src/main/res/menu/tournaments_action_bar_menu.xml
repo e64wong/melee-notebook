@@ -2,9 +2,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/add_tournament"
-        android:icon="@drawable/ic_add_white_48dp"
-        android:title="@string/add_tournament"
-        app:showAsAction="always"/>
 </menu>

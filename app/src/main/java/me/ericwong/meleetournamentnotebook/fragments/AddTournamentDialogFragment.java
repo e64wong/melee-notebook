@@ -1,4 +1,4 @@
-package me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.fragments;
+package me.ericwong.meleetournamentnotebook.fragments;
 
 import android.app.DialogFragment;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import me.ericwong.meleetournamentnotebook.R;
-import me.ericwong.meleetournamentnotebook.me.ericwong.meleetournamentnotebook.interfaces.TournamentInterface;
+import me.ericwong.meleetournamentnotebook.interfaces.TournamentInterface;
 
 /**
  * Created by root on 02/11/16.

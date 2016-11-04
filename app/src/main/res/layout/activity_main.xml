@@ -42,7 +42,7 @@
         android:layout_width="220dp"
         android:layout_height="75dp"
         android:layout_marginTop="25dp"
-        android:text="@string/tournaments_button"
+        android:text="@string/new_tournament"
         android:layout_below="@+id/game_count"
         android:layout_centerHorizontal="true"
         android:onClick="tournamentsButtonClick" />

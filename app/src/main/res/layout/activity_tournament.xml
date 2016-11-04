@@ -5,6 +5,7 @@
     android:id="@+id/activity_tournament"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context="me.ericwong.meleetournamentnotebook.TournamentActivity">
 
     <android.support.v7.widget.Toolbar
@@ -17,7 +18,7 @@
         app:popupTheme="@style/AppTheme.ActionBarPopupTheme"/>
 
     <FrameLayout android:id="@+id/list_fragment_container"
-        android:layout_margin="20dp"
+        android:layout_margin="0dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tournaments_action_bar">

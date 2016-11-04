@@ -5,4 +5,5 @@
     <color name="colorAccent">#CDDC39</color>
     <color name="colorPrimaryText">#FFFFFF</color>
     <color name="colorButtonNormal">#FFFFFF</color>
+    <color name="colorBackground">#EEEEEE</color>
 </resources>
