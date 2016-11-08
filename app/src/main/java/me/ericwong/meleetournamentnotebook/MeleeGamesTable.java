@@ -46,4 +46,46 @@ public class MeleeGamesTable extends SugarRecord {
         this.video_link         = video_link;
         this.date               = date;
     }
+
+    public static boolean tableIsEmpty(){
+        return (MeleeGamesTable.count(MeleeGamesTable.class) == 0);
+    }
+
+    public static int getSetformat(){
+        if (tableIsEmpty()) return -1;
+        return MeleeGamesTable.last(MeleeGamesTable.class).set_format;
+    }
+
+    public static int getCurrentSetCount(){
+
+        String[] falseArray = {"0"};
+        String[] trueArray = {"1"};
+
+        if(tableIsEmpty()){
+            return 1;
+        }
+
+        if (MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", falseArray) == getSetformat() //most recent game was set losing
+                || MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", trueArray) == getSetformat()) { //most recent game was set winning
+            return MeleeGamesTable.last(MeleeGamesTable.class).set_number + 1;
+        } else {
+            return MeleeGamesTable.last(MeleeGamesTable.class).set_number;
+        }
+    }
+
+    public static boolean isFirstGameOfSet(){
+        String[] falseArray = {"0"};
+        String[] trueArray = {"1"};
+
+        if(tableIsEmpty()){
+            return true;
+        }
+
+        if (MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", falseArray) == getSetformat() //most recent game was set losing
+                || MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", trueArray) == getSetformat()) { //most recent game was set winning
+            return true;
+        }
+
+        return false;
+    }
 }

@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import me.ericwong.meleetournamentnotebook.fragments.AddTournamentDialogFragment;
-import me.ericwong.meleetournamentnotebook.interfaces.TournamentInterface;
+import me.ericwong.meleetournamentnotebook.interfaces.MainActivityInterface;
 
-public class MainActivity extends AppCompatActivity implements TournamentInterface {
+public class MainActivity extends AppCompatActivity implements MainActivityInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

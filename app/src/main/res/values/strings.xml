@@ -10,4 +10,5 @@
     <string name="contact_me_text">If you see this text please contact me</string>
     <string name="opponents_tag">Opponent\'s Tag</string>
     <string name="submit">Submit</string>
+    <string name="you_vs">You vs</string>
 </resources>

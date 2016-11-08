@@ -11,20 +11,20 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import me.ericwong.meleetournamentnotebook.R;
-import me.ericwong.meleetournamentnotebook.interfaces.TournamentInterface;
+import me.ericwong.meleetournamentnotebook.interfaces.MainActivityInterface;
 
 /**
  * Created by root on 02/11/16.
  */
 
 public class AddTournamentDialogFragment extends DialogFragment {
-    TournamentInterface mListener;
+    MainActivityInterface mListener;
 
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
 
-        mListener = (TournamentInterface) getActivity();
+        mListener = (MainActivityInterface) getActivity();
     }
 
     @Override

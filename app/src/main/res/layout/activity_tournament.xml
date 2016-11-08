@@ -17,24 +17,33 @@
         android:theme="@style/AppTheme.ActionBarTheme"
         app:popupTheme="@style/AppTheme.ActionBarPopupTheme"/>
 
-    <TextView android:id="@+id/set_game_display"
+    <TextView android:id="@+id/opponent_tag_view"
         android:layout_below="@id/tournament_action_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:textSize="22sp"
         android:gravity="center"
-        android:paddingBottom="10dp"
         android:background="@android:color/white"
         android:layout_margin="0dp"
-        android:padding="10dp"
-        android:elevation="2dp"
-        android:text="You vs SuperAnimeVapeGod"/>
+        android:text="@string/you_vs"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/input_opponent_container"
+        android:elevation="2dp"/>
 
-    <FrameLayout android:id="@+id/list_fragment_container"
+    <FrameLayout android:id="@+id/input_opponent_container"
+        android:elevation="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/white"
+        android:layout_below="@id/tournament_action_bar">
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/main_container"
         android:layout_margin="0dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/set_game_display">
+        android:layout_below="@+id/opponent_tag_view">
     </FrameLayout>
 
 </RelativeLayout>
