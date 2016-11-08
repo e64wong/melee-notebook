@@ -47,11 +47,19 @@
         android:layout_centerHorizontal="true"
         android:onClick="tournamentButtonClick" />
 
+    <Button android:id="@+id/past_tournaments_button"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:text="@string/past_tournaments"
+        android:layout_below="@+id/tournament_button"
+        android:layout_centerHorizontal="true"
+        android:onClick="pastTournamentsButtonClick" />
+
     <Button android:id="@+id/player_button"
         android:layout_width="220dp"
         android:layout_height="75dp"
         android:text="@string/player_button"
-        android:layout_below="@+id/tournament_button"
+        android:layout_below="@+id/past_tournaments_button"
         android:layout_centerHorizontal="true"
         android:onClick="playerButtonClick" />
 

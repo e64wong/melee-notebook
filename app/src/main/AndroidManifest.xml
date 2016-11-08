@@ -9,35 +9,45 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity android:name=".TournamentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.TOURNAMENTACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.ericwong.meleetournamentnotebook.MainActivity" />
         </activity>
+        <activity android:name=".PastTournamentsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.PASTTOURNAMENTSACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.ericwong.meleetournamentnotebook.MainActivity" />
+        </activity>
         <activity android:name=".PlayerActivity" />
         <activity android:name=".StatsActivity" />
+
     </application>
 
 </manifest>

@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Melee Notebook</string>
     <string name="new_tournament">new tournament</string>
+    <string name="past_tournaments">past tournaments</string>
     <string name="resume_tournament">resume tournament</string>
     <string name="player_button">player index</string>
     <string name="statistics">statistics</string>
-    <string name="tournament_action_bar">Tournament</string>
+    <string name="past_tournaments_action_bar">Tournament</string>
     <string name="add_tournament">Add Tournament</string>
     <string name="contact_me_text">If you see this text please contact me</string>
+    <string name="opponents_tag">Opponent\'s Tag</string>
+    <string name="submit">Submit</string>
 </resources>

@@ -9,7 +9,7 @@ import com.orm.SugarRecord;
 public class MeleeGamesTable extends SugarRecord {
     String tournament;
     int set_number;
-    String set_format;
+    int set_format;
     String opponent;
     int game_number;
     String player_char;
@@ -28,7 +28,7 @@ public class MeleeGamesTable extends SugarRecord {
     public MeleeGamesTable(){
     }
 
-    public MeleeGamesTable(String tournament, int set_number, String set_format, String opponent, int game_number, String player_char, String opponent_char, String player_strike, String opponent_strike, String stage, boolean won, String player_notes, String flubs, String questions, String video_link, int date ){
+    public MeleeGamesTable(String tournament, int set_number, int set_format, String opponent, int game_number, String player_char, String opponent_char, String player_strike, String opponent_strike, String stage, boolean won, String player_notes, String flubs, String questions, String video_link, int date ){
         this.tournament         = tournament;
         this.set_number         = set_number;
         this.set_format         = set_format;

@@ -17,10 +17,9 @@ public class TournamentActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.tournament_action_bar);
         setSupportActionBar(toolbar);
-        textView = (TextView) findViewById(R.id.tournament_count);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        ab.setTitle(TournamentsTable.last(TournamentsTable.class).name);
+        updateActionBarText(ab);  //example output:
     }
 
     @Override
@@ -30,5 +29,24 @@ public class TournamentActivity extends AppCompatActivity {
         return true;
     }
 
+    public void updateActionBarText(ActionBar ab){
+        String tournamentName = TournamentsTable.last(TournamentsTable.class).name;
+        long setCount = 0;
+        long setFormat = 0;
+        if (MeleeGamesTable.count(MeleeGamesTable.class) != 0) {
+            setCount = MeleeGamesTable.last(MeleeGamesTable.class).set_number;
+            setFormat = MeleeGamesTable.last(MeleeGamesTable.class).set_format;
+        }
 
+        String[] falseArray = {"0"};
+        String[] trueArray = {"1"};
+
+        if (MeleeGamesTable.count(MeleeGamesTable.class) == 0 //no games played yet
+                || MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", falseArray) == setFormat //most recent game was set losing
+                || MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", trueArray) == setFormat) { //most recent game was set winning
+            ab.setTitle(tournamentName + " Set " + String.valueOf(setCount + 1));
+        } else {
+            ab.setTitle(tournamentName + " Set " + String.valueOf(setCount));
+        }
+    }
 }

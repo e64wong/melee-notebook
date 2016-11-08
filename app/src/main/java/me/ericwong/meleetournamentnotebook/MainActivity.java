@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity implements TournamentInterfa
         }
     }
 
+    public void pastTournamentsButtonClick(View view){
+        Intent intent = new Intent(this, PastTournamentsActivity.class);
+        startActivity(intent);
+    }
+
     public void playerButtonClick(View view) {
         Intent intent = new Intent(this, PlayerActivity.class);
         startActivity(intent);
