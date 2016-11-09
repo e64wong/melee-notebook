@@ -11,11 +11,13 @@ import android.view.MenuInflater;
 import android.widget.TextView;
 
 import me.ericwong.meleetournamentnotebook.fragments.InputOpponentFragment;
+import me.ericwong.meleetournamentnotebook.fragments.InputSetFormatFragment;
 import me.ericwong.meleetournamentnotebook.interfaces.TournamentActivityInterface;
 
 public class TournamentActivity extends AppCompatActivity implements TournamentActivityInterface{
 
     String opponentTag = "";
+    int setFormat = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,12 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
         ab.setDisplayHomeAsUpEnabled(true);
         updateActionBarText(ab);  //example output: UofC weekly Oct 26 set 1
         if (MeleeGamesTable.isFirstGameOfSet()){
-            promptForOpponentTag();
+            promptForSetFormat();
+        }
+        else {
+            //TODO set the proper value of opponentTag and setFormat
+            updateOpponentTagText();
+            //TODO: start a game fragment
         }
 
     }
@@ -61,15 +68,39 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
         fragmentTransaction.commit();
     }
 
+    public void promptForSetFormat(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        InputSetFormatFragment fragment = new InputSetFormatFragment();
+        fragmentTransaction.add(R.id.input_set_format, fragment);
+        fragmentTransaction.commit();
+    }
+
+    public void removeSetFormatPrompt(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.remove(fragmentManager.findFragmentById(R.id.input_set_format));
+        fragmentTransaction.commit();
+    }
+
     @Override
     public void addOpponentTag(String tag) {
         opponentTag = tag;
         updateOpponentTagText();
+        removeOpponentTagPrompt();
+        //TODO: start a game fragment
+    }
+
+    @Override
+    public void addSetFormat(int format) {
+        setFormat = format;
+        updateOpponentTagText();
+        removeSetFormatPrompt();
+        promptForOpponentTag();
     }
 
     public void updateOpponentTagText(){
         TextView textview = (TextView) findViewById(R.id.opponent_tag_view);
-        textview.setText(getString(R.string.you_vs) + " " + opponentTag);
-        removeOpponentTagPrompt();
+        textview.setText("Bo" + setFormat + " " + getString(R.string.vs) + " " + opponentTag);
     }
 }
