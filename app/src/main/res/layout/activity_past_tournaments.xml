@@ -5,7 +5,7 @@
     android:id="@+id/activity_past_tournaments"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="me.ericwong.meleetournamentnotebook.PastTournamentsActivity">
+    tools:context="me.ericwong.downloadcomplete.PastTournamentsActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/past_tournaments_action_bar"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Melee Notebook</string>
+    <string name="app_name">Download Complete</string>
     <string name="new_tournament">new tournament</string>
     <string name="past_tournaments">past tournaments</string>
     <string name="resume_tournament">resume tournament</string>
@@ -10,9 +10,37 @@
     <string name="contact_me_text">If you see this text please contact me</string>
     <string name="opponents_tag">Opponent\'s Tag</string>
     <string name="submit">Submit</string>
+    <string name="set">Set</string>
     <string name="vs">vs</string>
     <string-array name="set_formats">
         <item>Bo3</item>
         <item>Bo5</item>
+    </string-array>
+    <string-array name="melee_characters">
+        <item>Kirby</item>
+        <item>Fox</item>
+        <item>Falco</item>
+        <item>Marth</item>
+        <item>Sheik</item>
+        <item>Jigglypuff</item>
+        <item>Ice Clumbers</item>
+        <item>Captain Falcon</item>
+        <item>Pikachu</item>
+        <item>Samus</item>
+        <item>Dr. Mario</item>
+        <item>Yoshi</item>
+        <item>Luigi</item>
+        <item>Ganondorf</item>
+        <item>Mario</item>
+        <item>Young Link</item>
+        <item>Donkey Kong</item>
+        <item>Link</item>
+        <item>Mr. Game and Watch</item>
+        <item>Roy</item>
+        <item>Mewtwo</item>
+        <item>Zelda</item>
+        <item>Ness</item>
+        <item>Pichu</item>
+        <item>Bowser</item>
     </string-array>
 </resources>

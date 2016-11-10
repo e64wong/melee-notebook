@@ -9,12 +9,12 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/colorPrimary"
-    tools:context="me.ericwong.meleetournamentnotebook.MainActivity">
+    tools:context="me.ericwong.downloadcomplete.MainActivity">
 
     <TextView android:id="@+id/melee_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MELEE"
+        android:text="FIGHT!"
         android:textSize="90sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.ericwong.meleetournamentnotebook">
+    package="me.ericwong.downloadcomplete">
 
     <application
         android:name="com.orm.SugarApp"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="me.ericwong.downloadcomplete.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,14 +18,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="me.ericwong.downloadcomplete.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <activity android:name=".TournamentActivity">
+        <activity android:name="me.ericwong.downloadcomplete.TournamentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.TOURNAMENTACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -33,9 +34,9 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.ericwong.meleetournamentnotebook.MainActivity" />
+                android:value="me.ericwong.downloadcomplete.MainActivity" />
         </activity>
-        <activity android:name=".PastTournamentsActivity">
+        <activity android:name="me.ericwong.downloadcomplete.PastTournamentsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.PASTTOURNAMENTSACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -43,10 +44,10 @@
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.ericwong.meleetournamentnotebook.MainActivity" />
+                android:value="me.ericwong.downloadcomplete.MainActivity" />
         </activity>
-        <activity android:name=".PlayerActivity" />
-        <activity android:name=".StatsActivity" />
+        <activity android:name="me.ericwong.downloadcomplete.PlayerActivity" />
+        <activity android:name="me.ericwong.downloadcomplete.StatsActivity" />
 
     </application>
 
