@@ -14,7 +14,7 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/AppTheme.ActionBarTheme"
-        app:popupTheme="@style/AppTheme.ActionBarPopupTheme"/>
+        app:popupTheme="@style/AppTheme.ActionBarPopupTheme" />
 
     <ListView
         android:layout_width="match_parent"

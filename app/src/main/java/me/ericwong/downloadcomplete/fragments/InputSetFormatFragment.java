@@ -20,7 +20,7 @@ public class InputSetFormatFragment extends Fragment {
     TournamentActivityInterface mListener;
 
     @Override
-    public void onAttach(Context context){
+    public void onAttach(Context context) {
         super.onAttach(context);
 
         mListener = (TournamentActivityInterface) getActivity();
@@ -42,8 +42,7 @@ public class InputSetFormatFragment extends Fragment {
                 Spinner spinner = (Spinner) getView().findViewById(R.id.spinner);
                 if (spinner.getSelectedItem() == "Bo3") {
                     mListener.addSetFormat(3);
-                }
-                else {
+                } else {
                     mListener.addSetFormat(5);
                 }
 

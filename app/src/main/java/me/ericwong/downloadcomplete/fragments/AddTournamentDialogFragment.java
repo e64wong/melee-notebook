@@ -21,7 +21,7 @@ public class AddTournamentDialogFragment extends DialogFragment {
     MainActivityInterface mListener;
 
     @Override
-    public void onAttach(Context context){
+    public void onAttach(Context context) {
         super.onAttach(context);
 
         mListener = (MainActivityInterface) getActivity();

@@ -17,11 +17,11 @@ import me.ericwong.downloadcomplete.interfaces.TournamentActivityInterface;
  * Created by root on 08/11/16.
  */
 
-public class InputOpponentFragment extends Fragment{
+public class InputOpponentFragment extends Fragment {
     TournamentActivityInterface mListener;
 
     @Override
-    public void onAttach(Context context){
+    public void onAttach(Context context) {
         super.onAttach(context);
 
         mListener = (TournamentActivityInterface) getActivity();

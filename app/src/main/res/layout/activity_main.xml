@@ -11,34 +11,38 @@
     android:background="@color/colorPrimary"
     tools:context="me.ericwong.downloadcomplete.MainActivity">
 
-    <TextView android:id="@+id/melee_text"
+    <TextView
+        android:id="@+id/melee_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FIGHT!"
         android:textSize="90sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimaryText"/>
+        android:textColor="@color/colorPrimaryText" />
 
-    <TextView android:id="@+id/tournament_count"
+    <TextView
+        android:id="@+id/tournament_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/melee_text"
         android:text="@string/contact_me_text"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimaryText"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
-    <TextView android:id="@+id/game_count"
+    <TextView
+        android:id="@+id/game_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tournament_count"
         android:text="@string/contact_me_text"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimaryText"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
-    <Button android:id="@+id/tournament_button"
+    <Button
+        android:id="@+id/tournament_button"
         android:layout_width="220dp"
         android:layout_height="75dp"
         android:layout_marginTop="25dp"
@@ -47,7 +51,8 @@
         android:layout_centerHorizontal="true"
         android:onClick="tournamentButtonClick" />
 
-    <Button android:id="@+id/past_tournaments_button"
+    <Button
+        android:id="@+id/past_tournaments_button"
         android:layout_width="220dp"
         android:layout_height="75dp"
         android:text="@string/past_tournaments"
@@ -55,7 +60,8 @@
         android:layout_centerHorizontal="true"
         android:onClick="pastTournamentsButtonClick" />
 
-    <Button android:id="@+id/player_button"
+    <Button
+        android:id="@+id/player_button"
         android:layout_width="220dp"
         android:layout_height="75dp"
         android:text="@string/player_button"
@@ -63,7 +69,8 @@
         android:layout_centerHorizontal="true"
         android:onClick="playerButtonClick" />
 
-    <Button android:id="@+id/stats_button"
+    <Button
+        android:id="@+id/stats_button"
         android:layout_width="220dp"
         android:layout_height="75dp"
         android:text="@string/statistics"
