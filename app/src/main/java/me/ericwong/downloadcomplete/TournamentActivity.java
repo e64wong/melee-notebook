@@ -19,6 +19,15 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
 
     String opponentTag = "";
     int setFormat = 0;
+    int currentGame = 0;
+
+    public int getSetFormat(){
+        return setFormat;
+    }
+
+    public int getCurrentGame(){
+        return currentGame;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +37,8 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
         Toolbar toolbar = (Toolbar) findViewById(R.id.tournament_action_bar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-        updateActionBarText(ab);  //example output: UofC weekly Oct 26 set 1
-        if (MeleeGamesTable.isFirstGameOfSet() && opponentTag.equals("")) {
-            promptForSetFormat();
-        } else {
-            //TODO set the proper value of opponentTag and setFormat
-            updateOpponentTagText();
-            addGame();
-        }
-
+        ab.setDisplayHomeAsUpEnabled(true);  //example output: UofC weekly Oct 26 set 1
+        startGame();
     }
 
     @Override
@@ -47,10 +48,10 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
         return true;
     }
 
-    public void updateActionBarText(ActionBar ab) {
+    public void updateActionBarText() {
         String tournamentName = TournamentsTable.last(TournamentsTable.class).name;
 
-        ab.setTitle(tournamentName + " Set " + MeleeGamesTable.getCurrentSetCount());
+        getSupportActionBar().setTitle(tournamentName + " Set " + MeleeGamesTable.getCurrentSetCount());
     }
 
     public void promptForOpponentTag() {
@@ -86,9 +87,9 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
     @Override
     public void addOpponentTag(String tag) {
         opponentTag = tag;
-        updateOpponentTagText();
         removeOpponentTagPrompt();
-        addGame();
+        updateOpponentTagText();
+        addGameFragment();
     }
 
     @Override
@@ -104,12 +105,70 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
         textview.setText("Bo" + setFormat + " " + getString(R.string.vs) + " " + opponentTag);
     }
 
-    public void addGame() {
-        //TODO: take the set format and game format
+    public void addGameFragment() {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         TournamentGameMeleeFragment fragment = new TournamentGameMeleeFragment();
         fragmentTransaction.add(R.id.main_container, fragment);
         fragmentTransaction.commit();
+    }
+
+    public void removeGameFragment() {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.remove(fragmentManager.findFragmentById(R.id.main_container));
+        fragmentTransaction.commit();
+    }
+    
+    public void submitGame (String playerChar, String opponentChar, String strike, String stage, int won){
+        insertGameToDatabase(playerChar, opponentChar, strike, stage, won);
+        currentGame++;
+        removeGameFragment();
+        startGame();
+    }
+
+    public void startGame(){
+        if (!MeleeGamesTable.isFirstGameOfSet()) {
+            opponentTag = MeleeGamesTable.getOpponentTag();
+            setFormat = MeleeGamesTable.getSetFormat();
+            currentGame = MeleeGamesTable.getCurrentGame();
+            updateActionBarText();
+            updateOpponentTagText();
+            addGameFragment();
+        } else {
+
+            currentGame = 1;
+            updateActionBarText();
+            promptForSetFormat();
+        }
+    }
+
+    public void insertGameToDatabase(String playerChar, String opponentChar, String strike, String stage, int won){
+        String player_strike = "";
+        String opponent_strike = "";
+        if (currentGame != 1){
+            if (MeleeGamesTable.wonLastGame()){
+                player_strike = strike;
+            } else {
+                opponent_strike = strike;
+            }
+        }
+
+        MeleeGamesTable gameEntry = new MeleeGamesTable(
+                TournamentsTable.getTournamentName(),
+                MeleeGamesTable.getCurrentSetCount(),
+                setFormat,
+                opponentTag,
+                currentGame,
+                playerChar,
+                opponentChar,
+                player_strike,
+                opponent_strike,
+                stage,
+                won,
+                System.currentTimeMillis() / 1000L
+                );
+
+        gameEntry.save();
     }
 }

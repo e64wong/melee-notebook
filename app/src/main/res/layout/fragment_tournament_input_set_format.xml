@@ -16,7 +16,7 @@
         android:textSize="18sp"
 
         android:textColor="@android:color/black"
-        android:text="Set Format: " />
+        android:text="@string/set_format" />
 
     <Spinner
         android:layout_width="0dp"

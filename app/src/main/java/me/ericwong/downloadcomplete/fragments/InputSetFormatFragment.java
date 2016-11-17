@@ -3,6 +3,7 @@ package me.ericwong.downloadcomplete.fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,10 +41,10 @@ public class InputSetFormatFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Spinner spinner = (Spinner) getView().findViewById(R.id.spinner);
-                if (spinner.getSelectedItem() == "Bo3") {
-                    mListener.addSetFormat(3);
-                } else {
+                if (spinner.getSelectedItem().toString().equals("Bo5")) {
                     mListener.addSetFormat(5);
+                } else {
+                    mListener.addSetFormat(3);
                 }
 
             }

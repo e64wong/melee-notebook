@@ -28,4 +28,16 @@ public class TournamentsTable extends SugarRecord {
         this.start = start;
         this.end = end;
     }
+
+    public static boolean tableIsEmpty() {
+        return (TournamentsTable.count(TournamentsTable.class) == 0);
+    }
+
+    public static String getTournamentName(){
+        if (tableIsEmpty()){
+            return "";
+        } else {
+            return TournamentsTable.last(TournamentsTable.class).name;
+        }
+    }
 }

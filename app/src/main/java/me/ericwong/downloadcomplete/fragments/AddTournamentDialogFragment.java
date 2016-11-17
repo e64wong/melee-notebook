@@ -45,7 +45,7 @@ public class AddTournamentDialogFragment extends DialogFragment {
                     Log.e("", "EditText not found!");
                 }
 
-                mListener.instertTournamentToDatabase(editText.getText().toString());
+                mListener.insertTournamentToDatabase(editText.getText().toString());
                 dismiss();
 
             }

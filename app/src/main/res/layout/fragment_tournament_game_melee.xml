@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@android:color/white"
+    android:elevation="2dp"
     android:padding="10dp">
 
     <RelativeLayout
@@ -14,7 +16,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingBottom="10dp"
-        android:text="Game 1"
+        android:text="Game"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -48,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Previous Strike"
+        android:text="@string/previous_strike"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -57,42 +59,42 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <RadioButton
+        <RadioButton android:id="@+id/bf_strike"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/bf" />
-        <RadioButton
+            android:button="@drawable/bf_selector" />
+        <RadioButton android:id="@+id/ys_strike"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/ys" />
-        <RadioButton
+            android:button="@drawable/ys_selector" />
+        <RadioButton android:id="@+id/fod_strike"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/fod" />
+            android:button="@drawable/fod_selector" />
     </RadioGroup>
     <RadioGroup android:id="@+id/strike_row_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <RadioButton
+        <RadioButton android:id="@+id/dl_strike"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/dl" />
-        <RadioButton
+            android:button="@drawable/dl_selector" />
+        <RadioButton android:id="@+id/fd_strike"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/fd" />
-        <RadioButton
+            android:button="@drawable/fd_selector" />
+        <RadioButton android:id="@+id/ps_strike"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/ps" />
+            android:button="@drawable/ps_selector" />
     </RadioGroup>
 
     <TextView android:id="@+id/stage_header"
@@ -100,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Stage"
+        android:text="@string/stage"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -109,54 +111,55 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <RadioButton
+        <RadioButton android:id="@+id/bf_stage"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/bf" />
-        <RadioButton
+            android:button="@drawable/bf_selector" />
+        <RadioButton android:id="@+id/ys_stage"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/ys" />
-        <RadioButton
+            android:button="@drawable/ys_selector" />
+        <RadioButton android:id="@+id/fod_stage"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/fod" />
+            android:button="@drawable/fod_selector" />
     </RadioGroup>
     <RadioGroup android:id="@+id/stage_row_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-        <RadioButton
+        <RadioButton android:id="@+id/dl_stage"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/dl" />
-        <RadioButton
+            android:button="@drawable/dl_selector" />
+        <RadioButton android:id="@+id/fd_stage"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/fd" />
-        <RadioButton
+            android:button="@drawable/fd_selector" />
+        <RadioButton android:id="@+id/ps_stage"
             android:layout_width="80dp"
             android:layout_height="56dp"
             android:layout_margin="5dp"
-            android:button="@drawable/ps" />
+            android:button="@drawable/ps_selector" />
     </RadioGroup>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <Button
+        <Button android:id="@+id/win_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="I Won" />
-        <Button
+        <Button android:id="@+id/loose_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

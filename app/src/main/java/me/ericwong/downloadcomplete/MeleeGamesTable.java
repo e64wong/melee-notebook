@@ -17,18 +17,14 @@ public class MeleeGamesTable extends SugarRecord {
     String player_strike;
     String opponent_strike;
     String stage;
-    boolean won;
-    String player_notes;
-    String flubs;
-    String questions;
-    String video_link;
-    int date;
+    int won;
+    long date;
 
 
     public MeleeGamesTable() {
     }
 
-    public MeleeGamesTable(String tournament, int set_number, int set_format, String opponent, int game_number, String player_char, String opponent_char, String player_strike, String opponent_strike, String stage, boolean won, String player_notes, String flubs, String questions, String video_link, int date) {
+    public MeleeGamesTable(String tournament, int set_number, int set_format, String opponent, int game_number, String player_char, String opponent_char, String player_strike, String opponent_strike, String stage, int won, long date) {
         this.tournament = tournament;
         this.set_number = set_number;
         this.set_format = set_format;
@@ -40,10 +36,6 @@ public class MeleeGamesTable extends SugarRecord {
         this.opponent_strike = opponent_strike;
         this.stage = stage;
         this.won = won;
-        this.player_notes = player_notes;
-        this.flubs = flubs;
-        this.questions = questions;
-        this.video_link = video_link;
         this.date = date;
     }
 
@@ -58,15 +50,11 @@ public class MeleeGamesTable extends SugarRecord {
 
     public static int getCurrentSetCount() {
 
-        String[] falseArray = {"0"};
-        String[] trueArray = {"1"};
-
         if (tableIsEmpty()) {
             return 1;
         }
 
-        if (MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", falseArray) == getSetformat() //most recent game was set losing
-                || MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", trueArray) == getSetformat()) { //most recent game was set winning
+        if (MeleeGamesTable.isFirstGameOfSet()){
             return MeleeGamesTable.last(MeleeGamesTable.class).set_number + 1;
         } else {
             return MeleeGamesTable.last(MeleeGamesTable.class).set_number;
@@ -74,18 +62,32 @@ public class MeleeGamesTable extends SugarRecord {
     }
 
     public static boolean isFirstGameOfSet() {
-        String[] falseArray = {"0"};
-        String[] trueArray = {"1"};
 
         if (tableIsEmpty()) {
             return true;
         }
 
-        if (MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", falseArray) == getSetformat() //most recent game was set losing
-                || MeleeGamesTable.count(MeleeGamesTable.class, "won = ?", trueArray) == getSetformat()) { //most recent game was set winning
+        if ((MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and setNumber = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).set_number), "1")).size() == (getSetformat() / 2 + 1)
+                || (MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and setNumber = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).set_number), "0")).size() == (getSetformat() / 2 + 1)){
             return true;
         }
 
         return false;
+    }
+
+    public static boolean wonLastGame() {
+        return (MeleeGamesTable.last(MeleeGamesTable.class).won == 1);
+    }
+
+    public static String getOpponentTag() {
+        return MeleeGamesTable.last(MeleeGamesTable.class).opponent;
+    }
+
+    public static int getSetFormat() {
+        return MeleeGamesTable.last(MeleeGamesTable.class).set_format;
+    }
+
+    public static int getCurrentGame() {
+        return MeleeGamesTable.last(MeleeGamesTable.class).game_number + 1;
     }
 }

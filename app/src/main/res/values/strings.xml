@@ -12,6 +12,9 @@
     <string name="submit">Submit</string>
     <string name="set">Set</string>
     <string name="vs">vs</string>
+    <string name="set_format">Set Format:</string>
+    <string name="previous_strike">Previous Strike</string>
+    <string name="stage">Stage</string>
     <string-array name="set_formats">
         <item>Bo3</item>
         <item>Bo5</item>

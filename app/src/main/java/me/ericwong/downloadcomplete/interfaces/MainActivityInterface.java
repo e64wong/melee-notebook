@@ -5,5 +5,5 @@ package me.ericwong.downloadcomplete.interfaces;
  */
 
 public interface MainActivityInterface {
-    void instertTournamentToDatabase(String text);
+    void insertTournamentToDatabase(String text);
 };

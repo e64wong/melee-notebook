@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
     }
 
-    public void instertTournamentToDatabase(String text) {
+    public void insertTournamentToDatabase(String text) {
         if (text.length() > 0) {
             TournamentsTable tournament = new TournamentsTable(text, "MELEE", 0, 0, 0, (System.currentTimeMillis() / 1000), 0);
             tournament.save();
