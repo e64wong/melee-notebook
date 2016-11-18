@@ -8,14 +8,14 @@ import com.orm.SugarRecord;
 
 public class MeleeGamesTable extends SugarRecord {
     String tournament;
-    int set_number;
-    int set_format;
+    int setNumber;
+    int setFormat;
     String opponent;
-    int game_number;
-    String player_char;
-    String opponent_char;
-    String player_strike;
-    String opponent_strike;
+    int gameNumber;
+    String playerChar;
+    String opponentChar;
+    String playerStrike;
+    String opponentStrike;
     String stage;
     int won;
     long date;
@@ -24,16 +24,16 @@ public class MeleeGamesTable extends SugarRecord {
     public MeleeGamesTable() {
     }
 
-    public MeleeGamesTable(String tournament, int set_number, int set_format, String opponent, int game_number, String player_char, String opponent_char, String player_strike, String opponent_strike, String stage, int won, long date) {
+    public MeleeGamesTable(String tournament, int setNumber, int setFormat, String opponent, int gameNumber, String playerChar, String opponentChar, String playerStrike, String opponentStrike, String stage, int won, long date) {
         this.tournament = tournament;
-        this.set_number = set_number;
-        this.set_format = set_format;
+        this.setNumber = setNumber;
+        this.setFormat = setFormat;
         this.opponent = opponent;
-        this.game_number = game_number;
-        this.player_char = player_char;
-        this.opponent_char = opponent_char;
-        this.player_strike = player_strike;
-        this.opponent_strike = opponent_strike;
+        this.gameNumber = gameNumber;
+        this.playerChar = playerChar;
+        this.opponentChar = opponentChar;
+        this.playerStrike = playerStrike;
+        this.opponentStrike = opponentStrike;
         this.stage = stage;
         this.won = won;
         this.date = date;
@@ -45,7 +45,7 @@ public class MeleeGamesTable extends SugarRecord {
 
     public static int getSetformat() {
         if (tableIsEmpty()) return -1;
-        return MeleeGamesTable.last(MeleeGamesTable.class).set_format;
+        return MeleeGamesTable.last(MeleeGamesTable.class).setFormat;
     }
 
     public static int getCurrentSetCount() {
@@ -55,9 +55,9 @@ public class MeleeGamesTable extends SugarRecord {
         }
 
         if (MeleeGamesTable.isFirstGameOfSet()){
-            return MeleeGamesTable.last(MeleeGamesTable.class).set_number + 1;
+            return MeleeGamesTable.last(MeleeGamesTable.class).setNumber + 1;
         } else {
-            return MeleeGamesTable.last(MeleeGamesTable.class).set_number;
+            return MeleeGamesTable.last(MeleeGamesTable.class).setNumber;
         }
     }
 
@@ -67,8 +67,8 @@ public class MeleeGamesTable extends SugarRecord {
             return true;
         }
 
-        if ((MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and setNumber = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).set_number), "1")).size() == (getSetformat() / 2 + 1)
-                || (MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and setNumber = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).set_number), "0")).size() == (getSetformat() / 2 + 1)){
+        if ((MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and set_number = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).setNumber), "1")).size() == (getSetformat() / 2 + 1)
+                || (MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and set_number = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).setNumber), "0")).size() == (getSetformat() / 2 + 1)){
             return true;
         }
 
@@ -84,10 +84,10 @@ public class MeleeGamesTable extends SugarRecord {
     }
 
     public static int getSetFormat() {
-        return MeleeGamesTable.last(MeleeGamesTable.class).set_format;
+        return MeleeGamesTable.last(MeleeGamesTable.class).setFormat;
     }
 
     public static int getCurrentGame() {
-        return MeleeGamesTable.last(MeleeGamesTable.class).game_number + 1;
+        return MeleeGamesTable.last(MeleeGamesTable.class).gameNumber + 1;
     }
 }

@@ -144,13 +144,13 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
     }
 
     public void insertGameToDatabase(String playerChar, String opponentChar, String strike, String stage, int won){
-        String player_strike = "";
-        String opponent_strike = "";
+        String playerStrike = "";
+        String opponentStrike = "";
         if (currentGame != 1){
             if (MeleeGamesTable.wonLastGame()){
-                player_strike = strike;
+                playerStrike = strike;
             } else {
-                opponent_strike = strike;
+                opponentStrike = strike;
             }
         }
 
@@ -162,8 +162,8 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
                 currentGame,
                 playerChar,
                 opponentChar,
-                player_strike,
-                opponent_strike,
+                playerStrike,
+                opponentStrike,
                 stage,
                 won,
                 System.currentTimeMillis() / 1000L
