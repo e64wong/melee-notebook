@@ -90,4 +90,11 @@ public class MeleeGamesTable extends SugarRecord {
     public static int getCurrentGame() {
         return MeleeGamesTable.last(MeleeGamesTable.class).gameNumber + 1;
     }
+
+    public static String[] getMostRecentMatchup() {
+        String[] returnValue = {"", ""};
+        returnValue[0] = MeleeGamesTable.last(MeleeGamesTable.class).playerChar;
+        returnValue[1] = MeleeGamesTable.last(MeleeGamesTable.class).opponentChar;
+        return returnValue;
+    }
 }

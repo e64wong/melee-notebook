@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -73,6 +74,23 @@ public class TournamentGameMeleeFragment extends Fragment {
 
         final Spinner playerSpinner = (Spinner) rootView.findViewById(R.id.player_character_spinner);
         final Spinner opponentSpinner = (Spinner) rootView.findViewById(R.id.opponent_character_spinner);
+
+        ArrayAdapter<CharSequence> playerAdapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.melee_characters, android.R.layout.simple_spinner_item);
+        playerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        playerSpinner.setAdapter(playerAdapter);
+
+        ArrayAdapter<CharSequence> opponentAdapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.melee_characters, android.R.layout.simple_spinner_item);
+        opponentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        opponentSpinner.setAdapter(opponentAdapter);
+
+        if(!MeleeGamesTable.isFirstGameOfSet()){ //For convenience, reselect the characters from the last game
+            String[] recentChars = MeleeGamesTable.getMostRecentMatchup();
+            playerSpinner.setSelection(playerAdapter.getPosition(recentChars[0]));
+            opponentSpinner.setSelection(opponentAdapter.getPosition(recentChars[1]));
+        }
+
         winButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,8 +248,14 @@ public class TournamentGameMeleeFragment extends Fragment {
 
     public void updateButtons(){
         if ((strike.length() > 0 || !requiresStrikes()) && stage.length() > 0){
-            looseButton.setEnabled(true);
-            winButton.setEnabled(true);
+            if (strike.equals(stage)){
+                looseButton.setEnabled(false);
+                winButton.setEnabled(false);
+                mListener.sendToast("Strike and Stage cannot be identical");
+            } else {
+                looseButton.setEnabled(true);
+                winButton.setEnabled(true);
+            }
         }
     }
 

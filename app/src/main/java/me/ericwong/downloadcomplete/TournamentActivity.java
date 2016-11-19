@@ -2,6 +2,7 @@ package me.ericwong.downloadcomplete;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import me.ericwong.downloadcomplete.fragments.InputOpponentFragment;
 import me.ericwong.downloadcomplete.fragments.InputSetFormatFragment;
@@ -48,10 +50,45 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
         return true;
     }
 
-    public void updateActionBarText() {
-        String tournamentName = TournamentsTable.last(TournamentsTable.class).name;
+    @Override
+    public void addOpponentTag(String tag) {
+        opponentTag = tag;
+        removeOpponentTagPrompt();
+        updateOpponentTagText();
+        addGameFragment();
+    }
 
-        getSupportActionBar().setTitle(tournamentName + " Set " + MeleeGamesTable.getCurrentSetCount());
+    @Override
+    public void addSetFormat(int format) {
+        setFormat = format;
+        updateOpponentTagText();
+        removeSetFormatPrompt();
+        promptForOpponentTag();
+    }
+
+    public void updateActionBarText(boolean includeSetCount) {
+        String text = TournamentsTable.last(TournamentsTable.class).name;
+        if (includeSetCount){
+            text = text.concat(" Set " + MeleeGamesTable.getCurrentSetCount());
+        }
+        getSupportActionBar().setTitle(text);
+    }
+
+
+    public void startGame(){
+        if (!MeleeGamesTable.isFirstGameOfSet()) {
+            opponentTag = MeleeGamesTable.getOpponentTag();
+            setFormat = MeleeGamesTable.getSetFormat();
+            currentGame = MeleeGamesTable.getCurrentGame();
+            updateActionBarText(true);
+            updateOpponentTagText();
+            addGameFragment();
+        } else {
+
+            currentGame = 1;
+            updateActionBarText(true);
+            promptForSetFormat();
+        }
     }
 
     public void promptForOpponentTag() {
@@ -84,22 +121,6 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
         fragmentTransaction.commit();
     }
 
-    @Override
-    public void addOpponentTag(String tag) {
-        opponentTag = tag;
-        removeOpponentTagPrompt();
-        updateOpponentTagText();
-        addGameFragment();
-    }
-
-    @Override
-    public void addSetFormat(int format) {
-        setFormat = format;
-        updateOpponentTagText();
-        removeSetFormatPrompt();
-        promptForOpponentTag();
-    }
-
     public void updateOpponentTagText() {
         TextView textview = (TextView) findViewById(R.id.opponent_tag_view);
         textview.setText("Bo" + setFormat + " " + getString(R.string.vs) + " " + opponentTag);
@@ -124,23 +145,15 @@ public class TournamentActivity extends AppCompatActivity implements TournamentA
         insertGameToDatabase(playerChar, opponentChar, strike, stage, won);
         currentGame++;
         removeGameFragment();
+        opponentTag = "";
+        updateActionBarText(false);
         startGame();
     }
 
-    public void startGame(){
-        if (!MeleeGamesTable.isFirstGameOfSet()) {
-            opponentTag = MeleeGamesTable.getOpponentTag();
-            setFormat = MeleeGamesTable.getSetFormat();
-            currentGame = MeleeGamesTable.getCurrentGame();
-            updateActionBarText();
-            updateOpponentTagText();
-            addGameFragment();
-        } else {
-
-            currentGame = 1;
-            updateActionBarText();
-            promptForSetFormat();
-        }
+    public void sendToast(String message){
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void insertGameToDatabase(String playerChar, String opponentChar, String strike, String stage, int won){
