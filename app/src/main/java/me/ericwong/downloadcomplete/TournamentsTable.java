@@ -40,4 +40,15 @@ public class TournamentsTable extends SugarRecord {
             return TournamentsTable.last(TournamentsTable.class).name;
         }
     }
+
+    public static void cancelTournament(){
+        TournamentsTable tournament = TournamentsTable.last(TournamentsTable.class);
+        tournament.delete();
+    }
+
+    public static void endTournament(){
+        TournamentsTable tournament = TournamentsTable.last(TournamentsTable.class);
+        tournament.end = System.currentTimeMillis() / 1000;
+        tournament.save();
+    }
 }

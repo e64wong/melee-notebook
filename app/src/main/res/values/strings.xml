@@ -15,6 +15,8 @@
     <string name="set_format">Set Format:</string>
     <string name="previous_strike">Previous Strike</string>
     <string name="stage">Stage</string>
+    <string name="start_a_new_set">start a new set</string>
+    <string name="end_tournament">end tournament</string>
     <string-array name="set_formats">
         <item>Bo3</item>
         <item>Bo5</item>
@@ -26,6 +28,7 @@
         <item>Marth</item>
         <item>Sheik</item>
         <item>Jigglypuff</item>
+        <item>Peach</item>
         <item>Ice Clumbers</item>
         <item>C. Falcon</item>
         <item>Pikachu</item>

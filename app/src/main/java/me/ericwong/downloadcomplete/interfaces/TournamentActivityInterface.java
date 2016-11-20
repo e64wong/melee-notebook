@@ -16,4 +16,6 @@ public interface TournamentActivityInterface {
     void submitGame(String playerChar, String opponentChar, String strike, String stage, int won);
 
     void sendToast(String message);
+
+    void startGame();
 }

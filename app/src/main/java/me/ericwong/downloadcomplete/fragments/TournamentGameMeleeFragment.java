@@ -25,7 +25,6 @@ import me.ericwong.downloadcomplete.interfaces.TournamentActivityInterface;
  * Created by root on 13/11/16.
  */
 
-//TODO: link to db
 public class TournamentGameMeleeFragment extends Fragment {
     TournamentActivityInterface mListener;
 

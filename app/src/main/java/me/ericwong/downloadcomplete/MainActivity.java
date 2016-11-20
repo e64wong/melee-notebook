@@ -47,15 +47,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     }
 
     public void updateTournamentCount() {
-        long gameCount = TournamentsTable.count(TournamentsTable.class);
-        TextView tournamentCount = (TextView) findViewById(R.id.tournament_count);
+        long tournamentCount = TournamentsTable.count(TournamentsTable.class);
+        TextView tournamentCountText = (TextView) findViewById(R.id.tournament_count);
         String countString;
-        if (gameCount == 1) {
+        if (tournamentCount == 1) {
             countString = "1 Tournament Saved";
         } else {
-            countString = String.valueOf(gameCount) + " Tournaments Saved";
+            countString = String.valueOf(tournamentCount) + " Tournaments Saved";
         }
-        tournamentCount.setText(countString);
+        tournamentCountText.setText(countString);
     }
 
     public void updateTournamentButton() {

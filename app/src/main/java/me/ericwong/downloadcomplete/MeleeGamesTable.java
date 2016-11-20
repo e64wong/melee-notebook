@@ -43,7 +43,7 @@ public class MeleeGamesTable extends SugarRecord {
         return (MeleeGamesTable.count(MeleeGamesTable.class) == 0);
     }
 
-    public static int getSetformat() {
+    public static int getSetFormat() {
         if (tableIsEmpty()) return -1;
         return MeleeGamesTable.last(MeleeGamesTable.class).setFormat;
     }
@@ -66,13 +66,18 @@ public class MeleeGamesTable extends SugarRecord {
         if (tableIsEmpty()) {
             return true;
         }
-
-        if ((MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and set_number = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).setNumber), "1")).size() == (getSetformat() / 2 + 1)
-                || (MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and set_number = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).setNumber), "0")).size() == (getSetformat() / 2 + 1)){
+//TODO: What the fuck were you thinking with this if statement
+        if ((MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and set_number = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).setNumber), "1")).size() == (getSetFormat() / 2 + 1)
+                || (MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ? and set_number = ? and won = ?", TournamentsTable.getTournamentName(), String.valueOf(MeleeGamesTable.last(MeleeGamesTable.class).setNumber), "0")).size() == (getSetFormat() / 2 + 1)){
             return true;
         }
 
         return false;
+    }
+
+    public static boolean isFirstGameOfTournament() {
+        String currentTournament = TournamentsTable.getTournamentName();
+        return (MeleeGamesTable.find(MeleeGamesTable.class, "tournament = ?", currentTournament).size() == 0);
     }
 
     public static boolean wonLastGame() {
@@ -81,10 +86,6 @@ public class MeleeGamesTable extends SugarRecord {
 
     public static String getOpponentTag() {
         return MeleeGamesTable.last(MeleeGamesTable.class).opponent;
-    }
-
-    public static int getSetFormat() {
-        return MeleeGamesTable.last(MeleeGamesTable.class).setFormat;
     }
 
     public static int getCurrentGame() {
